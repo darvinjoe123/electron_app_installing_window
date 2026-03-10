@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Installing Your App</h1>
+    <p>Please wait while the installation is in progress...</p>
+
+    <progress id="installation-progress" value="0" max="100"></progress>
+    <p id="progress-value">0%</p>
+
+    <script>
+        // Simulate installation progress (for demonstration purposes)
+        const progress = document.getElementById('installation-progress');
+        const progressValue = document.getElementById('progress-value');
+
+        function simulateInstallation() {
+            let percent = 0;
+            const interval = setInterval(() => {
+                percent += 5;
+                if (percent <= 100) {
+                    progress.value = percent;
+                    progressValue.innerText = `${percent}%`;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 500);
+        }
+
+        // Start the installation simulation when the page is loaded
+        window.onload = simulateInstallation;
+    </script>
+</body>
+</html>
